@@ -1,0 +1,11 @@
+[
+  verbose: false,
+  private: false,
+  skip: false,
+  router: "lib/lyceum_web/router.ex",
+  exit: "Low",
+  format: "txt",
+  # Config.CSP is a known gap. CSP for LiveView needs script nonces and
+  # careful handling of inline event handlers — tracked as separate work.
+  ignore: ["Config.CSP"]
+]
