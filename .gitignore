@@ -35,3 +35,6 @@ lyceum-*.tar
 npm-debug.log
 /assets/node_modules/
 
+
+# Claude Code desktop app worktree pool — each is a full checkout.
+/.claude/worktrees/
