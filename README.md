@@ -29,7 +29,7 @@ Run the tests with `mix test`.
 
 ### Local secrets (optional)
 
-Local credentials (OAuth, email, and so on) go in `config/dev.secret.exs`, which
+Local credentials (email delivery and so on) go in `config/dev.secret.exs`, which
 is gitignored and auto-loaded by `config/dev.exs`. Copy the template to get
 started:
 

@@ -15,9 +15,3 @@ import Config
 #   api_key: "re_dev_xxx"
 #
 # config :swoosh, :api_client, Swoosh.ApiClient.Req
-
-# OAuth provider credentials, once sign-in is wired up. Mirror the env-var names
-# that config/runtime.exs reads in prod so the two stay in step.
-# config :lyceum, :google_oauth,
-#   client_id: "xxx.apps.googleusercontent.com",
-#   client_secret: "xxx"

@@ -6,6 +6,10 @@ Task-specific conventions live as **skills** under `.claude/skills/` (mirrored t
 
 Lyceum is an open source, self-hostable learning management system: create courses, teach cohorts, track student progress. It is an early-stage project — the domain is not built yet, so the conventions below are framework-level rather than product-level.
 
+Deliberately out of scope — don't reintroduce these without an explicit scope change:
+
+- **No OAuth.** Sign-in never goes through a third-party identity provider. No `ueberauth`, no provider client IDs or secrets, no `/auth/:provider/callback` routes.
+
 ## Stack
 
 - Phoenix 1.8, LiveView 1.1, Elixir 1.20, Erlang/OTP 28 (pinned in `.tool-versions`)
