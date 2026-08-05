@@ -34,6 +34,8 @@ After a change:
 
 Run `mix setup` to bootstrap a fresh checkout or worktree, then `mix phx.server` at [http://localhost:4000](http://localhost:4000). Concurrent worktrees can each run a server by overriding `PORT`, for example `PORT=4001 mix phx.server`; they share the local development database.
 
+`config/dev.secret.exs` is local, gitignored configuration, auto-loaded by `config/dev.exs` when present. Copy `config/dev.secret.example.exs` to create it, and add a commented entry to that template whenever you wire up a new service, so the shape stays documented. Prod reads the same values from env vars via `config/runtime.exs` — keep the two in step. Worktree tools copy the file through `.worktreeinclude`. **Never** commit it. The app runs stock without it; nothing needs it today.
+
 Production builds go through the `Dockerfile` (`mix phx.gen.release --docker` output); `lib/lyceum/release.ex` runs migrations without Mix.
 
 ## Commit messages

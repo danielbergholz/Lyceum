@@ -1,0 +1,3 @@
+# Ignored local configuration that worktree tools should copy into each worktree.
+# The app boots without it, but it carries optional local service credentials.
+config/dev.secret.exs

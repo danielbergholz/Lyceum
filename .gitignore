@@ -36,5 +36,8 @@ npm-debug.log
 /assets/node_modules/
 
 
+# Local dev secrets — copy dev.secret.example.exs to dev.secret.exs
+/config/*.secret.exs
+
 # Claude Code desktop app worktree pool — each is a full checkout.
 /.claude/worktrees/

@@ -90,3 +90,9 @@ config :phoenix_live_view,
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
+
+# Import development secrets if they exist. See config/dev.secret.example.exs
+# for the expected shape. Copy it to config/dev.secret.exs and fill in values.
+if File.exists?("config/dev.secret.exs") do
+  import_config "dev.secret.exs"
+end

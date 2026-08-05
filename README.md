@@ -27,6 +27,19 @@ Then visit [localhost:4000](http://localhost:4000).
 
 Run the tests with `mix test`.
 
+### Local secrets (optional)
+
+Local credentials (OAuth, email, and so on) go in `config/dev.secret.exs`, which
+is gitignored and auto-loaded by `config/dev.exs`. Copy the template to get
+started:
+
+```sh
+cp config/dev.secret.example.exs config/dev.secret.exs
+```
+
+No services need this yet, so the app runs without it. Add config as you
+integrate third-party services — `config/dev.secret.example.exs` shows the shape.
+
 ## Deployment
 
 See the [Phoenix deployment guides](https://phoenix.hexdocs.pm/deployment.html).
