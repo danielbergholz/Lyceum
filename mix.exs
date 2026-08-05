@@ -92,6 +92,7 @@ defmodule Lyceum.MixProject do
       ],
       precommit: [
         "compile --warnings-as-errors",
+        "skills.check",
         "deps.unlock --unused",
         "format",
         "gettext.extract --check-up-to-date",
