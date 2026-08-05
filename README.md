@@ -15,7 +15,8 @@ system you run yourself, on your own database, with your own data.
 
 ## Getting started
 
-You need Elixir 1.15+, Erlang/OTP 26+, and PostgreSQL.
+You need Elixir 1.20, Erlang/OTP 28, and PostgreSQL. If you use asdf or mise,
+`.tool-versions` pins both.
 
 ```bash
 mix setup          # install deps, create and migrate the database, build assets
