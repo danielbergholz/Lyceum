@@ -1,0 +1,35 @@
+# Lyceum
+
+Open source, self-hostable learning management system. Create courses, teach
+cohorts, and track student progress.
+
+Built with Elixir, Phoenix LiveView, and PostgreSQL.
+
+> **Status: early.** This is a fresh Phoenix scaffold. Nothing below the setup
+> steps works yet.
+
+## Why
+
+Most learning platforms are hosted services you rent. Lyceum is meant to be a
+system you run yourself, on your own database, with your own data.
+
+## Getting started
+
+You need Elixir 1.15+, Erlang/OTP 26+, and PostgreSQL.
+
+```bash
+mix setup          # install deps, create and migrate the database, build assets
+mix phx.server     # or: iex -S mix phx.server
+```
+
+Then visit [localhost:4000](http://localhost:4000).
+
+Run the tests with `mix test`.
+
+## Deployment
+
+See the [Phoenix deployment guides](https://phoenix.hexdocs.pm/deployment.html).
+
+## License
+
+MIT
