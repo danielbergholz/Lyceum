@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ELIXIR_VERSION: "1.20.0"
+  OTP_VERSION: "28.3"
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: ${{ env.ELIXIR_VERSION }}
+          otp-version: ${{ env.OTP_VERSION }}
+
+      - name: Restore mix cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            deps
+            _build
+          key: ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.OTP_VERSION }}-${{ hashFiles('mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.OTP_VERSION }}-
+
+      - name: Restore assets cache
+        uses: actions/cache@v4
+        with:
+          path: priv/static/assets
+          key: ${{ runner.os }}-assets-${{ hashFiles('assets/**/*', 'mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-assets-
+
+      - name: Install hex and rebar
+        run: mix local.hex --force && mix local.rebar --force
+
+      - name: Get dependencies
+        run: mix deps.get
+
+      - name: Setup assets tooling
+        run: |
+          for i in 1 2 3; do
+            mix assets.setup && exit 0
+            sleep 3
+          done
+          exit 1
+
+      - name: Build assets
+        run: mix assets.build
+
+      - name: Create skills mirror symlink for skills.check
+        run: mkdir -p .agents && ln -sfn ../.claude/skills .agents/skills
+
+      - name: Run precommit checks
+        run: mix precommit
