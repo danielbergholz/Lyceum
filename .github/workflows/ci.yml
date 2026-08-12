@@ -65,7 +65,13 @@ jobs:
         run: mix deps.get
 
       - name: Setup assets tooling
-        run: mix assets.setup
+        run: |
+          n=0
+          until [ "$n" -ge 3 ]; do
+            mix assets.setup && break
+            n=$((n+1))
+            sleep 3
+          done
 
       - name: Build assets
         run: mix assets.build
