@@ -41,15 +41,15 @@ defmodule Lyceum.MixProject do
   defp deps do
     [
       {:tidewave, "~> 0.9", only: [:dev]},
-      {:phoenix, "~> 1.8.8"},
+      {:phoenix, "~> 1.8.12"},
       {:phoenix_ecto, "~> 4.5"},
       {:ecto_sql, "~> 3.13"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 1.2.0"},
+      {:phoenix_live_view, "~> 1.2.10"},
       {:lazy_html, ">= 0.1.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.8.3"},
+      {:phoenix_live_dashboard, "~> 0.9.0"},
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
       {:heroicons,
@@ -68,7 +68,7 @@ defmodule Lyceum.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:sobelow, "~> 0.14", only: [:dev, :test], runtime: false}
+      {:sobelow, "~> 0.15", only: [:dev, :test], runtime: false}
     ]
   end
 
