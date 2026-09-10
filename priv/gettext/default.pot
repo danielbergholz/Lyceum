@@ -36,3 +36,18 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "close"
 msgstr ""
+
+#: lib/lyceum_web/components/layouts.ex:156
+#, elixir-autogen, elixir-format
+msgid "Use dark theme"
+msgstr ""
+
+#: lib/lyceum_web/components/layouts.ex:147
+#, elixir-autogen, elixir-format
+msgid "Use light theme"
+msgstr ""
+
+#: lib/lyceum_web/components/layouts.ex:138
+#, elixir-autogen, elixir-format
+msgid "Use system theme"
+msgstr ""
